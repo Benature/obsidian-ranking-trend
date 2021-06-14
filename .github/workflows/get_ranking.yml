@@ -1,8 +1,8 @@
-name: glados-checkin
+name: update-ranking
 
 on:
-  push:
-    branches: [main]
+  # push:
+  #   branches: [main]
   # pull_request:
   #   branches: [master]
   schedule:
@@ -23,10 +23,6 @@ jobs:
 
       - name: Install Python
         run: |
-          # sudo apt update && \
-          # sudo apt install python3
-          # sudo apt install python3-setuptools
-          # # sudo apt install git
           pip3 install -r requirements.txt
 
       - name: get ranking
@@ -39,14 +35,9 @@ jobs:
           git config --global user.name Benature
           git add .
           git commit -m "update daily" -a
-          git push
+          # git push
 
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-        # env:
-        #   WECHAT_BOT: ${{ secrets.WECHAT_BOT }}
-        #   COOKIE: ${{ secrets.COOKIE }}
-        #   TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
-        #   TG_TOKEN: ${{ secrets.TG_TOKEN }}
