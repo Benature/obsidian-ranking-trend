@@ -3,18 +3,24 @@ var series = [
   { name: "obsidian-text-format", color: "#1c1c1c" },
 ];
 $(function () {
-  $.get(
+  let getHistoryData = $.getJSON(
     "https://raw.githubusercontent.com/Benature/obsidian-ranking-trend/main/data.json",
-    function (data, status) {
-      if (status == "success") {
-        data = JSON.parse(data);
-        render_echarts(data);
-      }
-    }
+    function (data, status) {}
   );
+
+  let getNowData = $.getJSON(
+    "https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-plugin-stats.json",
+    function (data, status) {}
+  );
+
+  getHistoryData.done(function (historyData) {
+    getNowData.done(function (nowData) {
+      render_echarts(historyData, nowData);
+    });
+  });
 });
 
-function render_echarts(data) {
+function render_echarts(historyData, nowData) {
   var X = [];
   var legend = [];
   for (let j = 0; j < series.length; j++) {
@@ -24,13 +30,21 @@ function render_echarts(data) {
     series[j].data = [];
   }
 
-  for (let i = 0; i < data.length; i++) {
-    let date = data[i].date.slice(0, 10);
+  // render series data list
+  for (let i = 0; i < historyData.length; i++) {
+    let date = historyData[i].date.slice(0, 10);
     X.push(date);
     for (let j = 0; j < series.length; j++) {
-      series[j].data.push(data[i].data[series[j].name]);
+      series[j].data.push(historyData[i].data[series[j].name]);
     }
   }
+  // console.log(nowData);
+  for (let j = 0; j < series.length; j++) {
+    // console.log(nowData[series[j].name]);
+    series[j].data.push(nowData[series[j].name].downloads);
+  }
+  X.push("now");
+
   console.log(X);
   console.log(series);
 
