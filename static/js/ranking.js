@@ -14,7 +14,9 @@ $(function () {
   );
 
   getHistoryData.done(function (historyData) {
+    console.log('historyData');
     getNowData.done(function (nowData) {
+      console.log('nowData');
       render_echarts(historyData, nowData);
     });
   });
