@@ -1,4 +1,8 @@
 #echarts {
-  width: 700px;
-  height: 300px;
+  width: 1000px;
+  height: 700px;
+  position: absolute;
+	left: 50%;
+	top: 10%;
+  transform: translate(-50%,0);
 }
