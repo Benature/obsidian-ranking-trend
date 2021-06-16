@@ -3,6 +3,9 @@ var series = [
   { name: "obsidian-text-format", color: "#1c1c1c" },
 ];
 $(function () {
+  let shield_plugin = getQueryString("shield");
+  console.log(shield_plugin);
+
   let getHistoryData = $.getJSON(
     "https://raw.githubusercontent.com/Benature/obsidian-ranking-trend/main/data.json",
     function (data, status) {}
@@ -14,9 +17,9 @@ $(function () {
   );
 
   getHistoryData.done(function (historyData) {
-    console.log('historyData');
+    console.log("historyData");
     getNowData.done(function (nowData) {
-      console.log('nowData');
+      console.log("nowData");
       render_echarts(historyData, nowData);
     });
   });
