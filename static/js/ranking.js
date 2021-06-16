@@ -4,7 +4,13 @@ var series = [
 ];
 $(function () {
   let shield_plugin = getQueryString("shield");
-  console.log(shield_plugin);
+  if (shield_plugin) {
+    console.log(shield_plugin);
+    $("body").html(
+      '{"schemaVersion": 1,"label": "hello","message": "sweet world","color": "orange"}'
+    );
+    return;
+  }
 
   let getHistoryData = $.getJSON(
     "https://raw.githubusercontent.com/Benature/obsidian-ranking-trend/main/data.json",
