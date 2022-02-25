@@ -91,6 +91,11 @@ function render_echarts(historyData, nowData) {
       },
     },
     calculable: true,
+    dataZoom: [
+      {
+        type: "slider",
+      },
+    ],
     xAxis: {
       show: true,
       type: "category",
