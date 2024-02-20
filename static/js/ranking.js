@@ -2,6 +2,7 @@ var series = [
   { name: "obsidian-underline", color: "#1a85ff" },
   { name: "obsidian-text-format", color: "#1c1c1c" },
   { name: "metadata-hider", color: "#ab78c8" },
+   { name: "share-my-plugin-list", color: "#187b39" },
 ];
 $(function () {
   let shield_plugin = getQueryString("shield");
