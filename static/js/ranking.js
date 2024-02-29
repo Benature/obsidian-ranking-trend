@@ -1,8 +1,10 @@
 var series = [
   { name: "obsidian-underline", color: "#1a85ff" },
   { name: "obsidian-text-format", color: "#1c1c1c" },
+  { name: "metadata-icon", color: "#d6f3fe" },
   { name: "metadata-hider", color: "#ab78c8" },
-   { name: "share-my-plugin-list", color: "#187b39" },
+  { name: "share-my-plugin-list", color: "#187b39" },
+  { name: "plugin-reloader", color: "#ffc362" },
 ];
 $(function () {
   let shield_plugin = getQueryString("shield");
