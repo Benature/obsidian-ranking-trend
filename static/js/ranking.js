@@ -6,6 +6,7 @@ var series = [
   { name: "share-my-plugin-list", color: "#187b39" },
   { name: "plugin-reloader", color: "#ffc362" },
   { name: "default-query-in-backlink", color: "#d85888" },
+  { name: "automation", color: "#ca7e72" },
 ];
 $(function () {
   let shield_plugin = getQueryString("shield");
